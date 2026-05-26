@@ -34,8 +34,9 @@ export async function POST(request: NextRequest) {
       );
     }
 
+    const fileBuffer = await file.arrayBuffer();
     const removeBgFormData = new FormData();
-    removeBgFormData.append("image_file", file);
+    removeBgFormData.append("image_file", new Blob([fileBuffer], { type: file.type }), file.name);
     removeBgFormData.append("size", "auto");
     removeBgFormData.append("format", "png");
 
@@ -50,10 +51,12 @@ export async function POST(request: NextRequest) {
     if (!response.ok) {
       const errorText = await response.text();
       console.error("Remove.bg API error:", response.status, errorText);
-      return NextResponse.json(
-        { error: "Background removal failed. Please try again later." },
-        { status: response.status }
-      );
+      let message = "Background removal failed. Please try again.";
+      try {
+        const errJson = JSON.parse(errorText);
+        if (errJson.errors?.[0]?.title) message = errJson.errors[0].title;
+      } catch {}
+      return NextResponse.json({ error: message }, { status: response.status });
     }
 
     const arrayBuffer = await response.arrayBuffer();
