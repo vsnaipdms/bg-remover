@@ -33,14 +33,44 @@ const config: Config = {
           800: "#6b21a8",
           900: "#581c87",
         },
+        brand: {
+          50: "#fff7ed",
+          100: "#ffedd5",
+          200: "#fed7aa",
+          300: "#fdba74",
+          400: "#fb923c",
+          500: "#f97316",
+          600: "#ea580c",
+          700: "#c2410c",
+          800: "#9a3412",
+          900: "#7c2d12",
+        },
+        whatsapp: {
+          50: "#ecfdf5",
+          100: "#d1fae5",
+          200: "#a7f3d0",
+          300: "#6ee7b7",
+          400: "#34d399",
+          500: "#25D366",
+          600: "#16a34a",
+          700: "#15803d",
+          800: "#166534",
+          900: "#14532d",
+        },
       },
       fontFamily: {
         sans: ["Inter", "system-ui", "sans-serif"],
       },
       animation: {
         "gradient-x": "gradient-x 8s ease infinite",
+        "gradient-slow": "gradient-x 15s ease infinite",
         "fade-in": "fade-in 0.6s ease-out",
         "slide-up": "slide-up 0.6s ease-out",
+        "pulse-slow": "pulse 3s ease-in-out infinite",
+        "pulse-whatsapp": "pulse-whatsapp 2s ease-in-out infinite",
+        float: "float 3s ease-in-out infinite",
+        glow: "glow 2s ease-in-out infinite alternate",
+        "bounce-gentle": "bounce-gentle 2s ease-in-out infinite",
       },
       keyframes: {
         "gradient-x": {
@@ -54,6 +84,22 @@ const config: Config = {
         "slide-up": {
           "0%": { opacity: "0", transform: "translateY(20px)" },
           "100%": { opacity: "1", transform: "translateY(0)" },
+        },
+        "pulse-whatsapp": {
+          "0%, 100%": { transform: "scale(1)", opacity: "1" },
+          "50%": { transform: "scale(1.08)", opacity: "0.9" },
+        },
+        float: {
+          "0%, 100%": { transform: "translateY(0)" },
+          "50%": { transform: "translateY(-6px)" },
+        },
+        glow: {
+          "0%": { boxShadow: "0 0 5px rgba(99,102,241,0.3), 0 0 10px rgba(99,102,241,0.1)" },
+          "100%": { boxShadow: "0 0 15px rgba(99,102,241,0.5), 0 0 30px rgba(99,102,241,0.2)" },
+        },
+        "bounce-gentle": {
+          "0%, 100%": { transform: "translateY(0)" },
+          "50%": { transform: "translateY(-3px)" },
         },
       },
     },

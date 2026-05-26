@@ -2,7 +2,7 @@
 @tailwind components;
 @tailwind utilities;
 
-@import url('https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700;800&display=swap');
+@import url('https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700;800;900&display=swap');
 
 @layer base {
   html {
@@ -27,16 +27,85 @@
     @apply bg-clip-text text-transparent bg-gradient-to-r from-primary-600 via-accent-500 to-primary-500;
   }
 
+  .gradient-text-premium {
+    @apply bg-clip-text text-transparent bg-gradient-to-r from-brand-500 via-accent-500 to-primary-500;
+  }
+
+  .gradient-text-fire {
+    @apply bg-clip-text text-transparent bg-gradient-to-r from-brand-500 via-red-500 to-accent-600;
+  }
+
   .gradient-btn {
     @apply bg-gradient-to-r from-primary-600 to-accent-600 hover:from-primary-500 hover:to-accent-500 
            text-white font-semibold rounded-xl transition-all duration-300 
            shadow-lg shadow-primary-500/25 hover:shadow-primary-500/40;
+  }
+
+  .gradient-btn-glow {
+    @apply bg-gradient-to-r from-brand-500 via-accent-500 to-primary-500 
+           text-white font-bold rounded-xl transition-all duration-300 
+           shadow-lg shadow-brand-500/30 hover:shadow-brand-500/50 
+           hover:scale-105 hover:from-brand-400 hover:via-accent-400 hover:to-primary-400
+           animate-glow;
+  }
+
+  .whatsapp-float {
+    @apply fixed bottom-6 right-6 z-50 flex items-center gap-3;
+  }
+
+  .whatsapp-btn {
+    @apply w-14 h-14 rounded-full bg-whatsapp-500 flex items-center justify-center
+           shadow-lg shadow-whatsapp-500/40 hover:shadow-whatsapp-500/60
+           transition-all duration-300 hover:scale-110
+           animate-pulse-whatsapp;
+  }
+
+  .whatsapp-tag {
+    @apply bg-white/95 backdrop-blur-sm text-gray-800 text-xs font-semibold
+           px-4 py-2 rounded-full shadow-lg border border-gray-100
+           whitespace-nowrap opacity-0 translate-x-4
+           transition-all duration-300;
+  }
+
+  .social-icon {
+    @apply w-12 h-12 rounded-xl bg-white/10 backdrop-blur-sm border border-white/20
+           flex items-center justify-center transition-all duration-300
+           hover:scale-110 hover:-translate-y-1;
+  }
+
+  .badge-glow {
+    @apply inline-flex items-center gap-1.5 px-3 py-1.5 rounded-full text-xs font-semibold
+           bg-gradient-to-r shadow-lg;
+  }
+
+  .footer-glow-orb {
+    @apply absolute rounded-full blur-3xl opacity-30 animate-float;
   }
 }
 
 @layer utilities {
   .animate-in {
     animation: fade-in 0.6s ease-out, slide-up 0.6s ease-out;
+  }
+
+  .text-shadow-glow {
+    text-shadow: 0 0 20px rgba(99,102,241,0.3), 0 0 40px rgba(99,102,241,0.1);
+  }
+
+  .animate-delay-100 {
+    animation-delay: 0.1s;
+  }
+  .animate-delay-200 {
+    animation-delay: 0.2s;
+  }
+  .animate-delay-300 {
+    animation-delay: 0.3s;
+  }
+  .animate-delay-500 {
+    animation-delay: 0.5s;
+  }
+  .animate-delay-700 {
+    animation-delay: 0.7s;
   }
 }
 
@@ -58,4 +127,8 @@
 
 input[type="file"]::file-selector-button {
   display: none;
+}
+
+::selection {
+  @apply bg-primary-500/20 text-primary-900;
 }
