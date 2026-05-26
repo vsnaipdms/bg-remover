@@ -41,7 +41,7 @@ export default function RootLayout({
 }) {
   return (
     <html lang="en">
-      <body className="min-h-screen bg-[#f8faff] bg-gradient-to-br from-white via-primary-50/30 to-accent-50/30 text-gray-900 font-sans">
+      <body className="min-h-screen bg-[#fafbfc] text-gray-900 font-sans">
         {children}
       </body>
     </html>
