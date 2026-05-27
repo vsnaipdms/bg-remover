@@ -496,11 +496,6 @@ export default function Home() {
         </a>
       </div>
 
-      {!originalUrl && (
-        <motion.div initial={{ y: 100 }} animate={{ y: 0 }} className="fixed bottom-0 left-0 right-0 p-4 bg-white/95 backdrop-blur-2xl border-t border-gray-100/80 md:hidden z-40 shadow-2xl">
-          <button onClick={() => { const input = document.createElement("input"); input.type = "file"; input.accept = "image/jpeg,image/png,image/webp"; input.onchange = (e) => { const file = (e.target as HTMLInputElement).files?.[0]; if (file) handleImageSelected(file); }; input.click(); }} className="btn-glow w-full py-3.5 text-sm">Upload Image &mdash; Remove Background</button>
-        </motion.div>
-      )}
     </main>
   );
 }
